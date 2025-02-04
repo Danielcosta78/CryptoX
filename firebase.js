@@ -1,6 +1,6 @@
 // Importar funções necessárias do SDK Firebase
 import { initializeApp } from "https://www.gstatic.com/firebasejs/11.2.0/firebase-app.js";
-import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, sendPasswordResetEmail, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/11.2.0/firebase-auth.js";
+import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, sendPasswordResetEmail, signOut, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/11.2.0/firebase-auth.js";
 
 // Configuração do Firebase
 const firebaseConfig = {
@@ -57,6 +57,19 @@ document.getElementById('recover-btn').addEventListener('click', () => {
         })
         .catch((error) => {
             alert("Erro ao enviar e-mail: " + error.message);
+        });
+});
+
+// Função de logout
+document.getElementById('logout-btn').addEventListener('click', () => {
+    signOut(auth)
+        .then(() => {
+            alert('Você saiu com sucesso!');
+            // Ocultar a área de conteúdo e voltar à tela de login
+            document.getElementById('content').style.display = 'none';
+        })
+        .catch((error) => {
+            alert("Erro ao sair: " + error.message);
         });
 });
 
