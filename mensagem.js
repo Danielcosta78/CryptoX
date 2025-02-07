@@ -13,7 +13,7 @@ document.addEventListener("DOMContentLoaded", function () {
     // Criando o link dentro da mensagem
     let link = document.createElement("a");
     link.href = "https://cryptoxio.vercel.app/";
-    link.textContent = "This is just the test website, visit the full site here";
+    link.textContent = "This site is just a demo, all features are available on the full site, visit it by clicking here";
     link.style.color = "#000";
     link.style.textDecoration = "none";
 
